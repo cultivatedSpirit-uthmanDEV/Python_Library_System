@@ -10,12 +10,10 @@ print("      ")
 Books = []
 
 def add_book(title, author, year):
-  Book = {
-    'title' : title, 'author' : author,  
-    'year' : year}
-  Books.append(f"The Book' {title}', by {author}, {year} added to the library.")
-  print(Books)
+  Book = {'title' : title, 'author' : author,'year' : year}
+  Books.append(Book)
+  print(f"Book '{title}' added to library.")
 
-add_book(title= " The journey to west ", author=" F. Uthman ",  year=1902)
+add_book( title= "The journey to west", author= "J. Uthman", year= "1956")
   
 
