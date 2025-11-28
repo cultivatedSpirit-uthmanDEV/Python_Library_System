@@ -1,81 +1,62 @@
-# HEADING
+class library():
+  def __init__(self):
+    self.Books = []
+  ## Add book to library
 
-print("      ")
-print("      ")
-print("LIBRARY MANAGEMENT SYSTEM")
-print("      ")
+  def add_Book(self,title,author,year):
+    Book = {
+      "title" : title,
+      "author" : author,
+      "year" : year}
+    self.Books.append(Book)
+    print(f"'{title}' has been added")
 
-## add book to library
+    ## check available book
 
-Books = []
-
-def add_book(title, author, year):
-  Book = {'title' : title, 'author' : author,'year' : year}
-  Books.append(Book)
-  print(f"Book '{title}' added to library.")
-
-add_book( title= "Python for begonners", author= "NoorLab institute", year= "2025")
-add_book( title= "The journey to west", author= "J. chenyu", year= "1956")
-add_book( title= "futurist peeps", author= "W. Uthman", year= "1956")
-
-
-## Available Book in the library
-
-print("      ")
-print("      ")
-print("Available Book in the library")
-print("      ")
-
-
-
-def available_book():
-   for Avail_Book in Books:
-    print("Available Book: " f"{Avail_Book['title']} by ({Avail_Book['author']}) ({Avail_Book['year']})")
-
-
-available_book()
-
-## Book search
-
-print("      ")
-print("      ")
-print("Book Search")
-print("      ")
-
-
-
-def search_book(title):
-  for Book in Books:
-    if Book['title'].lower() == title.lower():
-      print(f"Found: {Book['title']} by {Book['author']} ({Book['year']})")
+  def avail_Book(self):
+    for Book in self.Books:
+      print(f"{Book['title']} by {Book['author']}({Book['year']})")
+   ##  search for book
+  def search_book(self,title):
+    for Book in self.Books:
+      if Book['title'] == title:
+        print(f"{Book['title']} by {Book['author']} in {Book['year']} Found!")
       return
-  print("Book not found")
+  print('Not Found!')
 
-search_book( "futurist peeps")
+  ## Borrow book
+
+  def borrow_Book(self,title):
+    for Book in self.Books:
+      if Book['title'] == title:
+        self.Books.remove(Book)
+        print(f"{Book['title']} by {Book['author']} has been borrowed out")
+        return
+    print("Book not found")
 
 
-## Borrowed book
+
+
+
+
+lib = library()
+lib.add_Book("Python for beginners", "NoorLab institute", "2025")
+lib.add_Book("The journey to west", "J. chenyu", "1956")
+lib.add_Book("futurist peeps", "W. Uthman", "1956")
 
 print("      ")
 print("      ")
-print("Borrow Book")
+print("      ")
+print("      ")
+lib.avail_Book()
+
+print("      ")
 print("      ")
 
 
-def borrow_Book(title):
-  for Book in Books:
-    if Book['title'].lower() == title.lower():
-      Books.remove(Book)
-      print(f"{Book['title']} has been borrowed out")
-      return
-  print('Book not found')
+lib.search_book("Python for beginners")
+print("      ")
+lib.borrow_Book("The journey to west")
 
 
-borrow_Book('The journey to west')
-
-
-
-
-
-  
-
+    
