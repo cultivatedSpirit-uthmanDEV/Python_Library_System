@@ -1,6 +1,8 @@
 class library():
   def __init__(self):
     self.Books = []
+    self.Book_search = []
+
   ## Add book to library
 
   def add_Book(self,title,author,year):
@@ -16,7 +18,9 @@ class library():
   def avail_Book(self):
     for Book in self.Books:
       print(f"{Book['title']} by {Book['author']}({Book['year']})")
+
    ##  search for book
+   
   def search_book(self,title):
     for Book in self.Books:
       if Book['title'] == title:
@@ -27,12 +31,27 @@ class library():
   ## Borrow book
 
   def borrow_Book(self,title):
+   
     for Book in self.Books:
       if Book['title'] == title:
         self.Books.remove(Book)
+        self.Book_search.append(Book)
+        print(self.Book_search)
         print(f"{Book['title']} by {Book['author']} has been borrowed out")
         return
     print("Book not found")
+
+  def unavailable_book(self,title):
+    for book in self.Book_search:
+      if book['title'] == title:
+        print(f"{book['title']} is not available")
+        return
+      else: 
+        print("It is available")
+
+
+
+
 
 
 
@@ -57,6 +76,8 @@ print("      ")
 lib.search_book("Python for beginners")
 print("      ")
 lib.borrow_Book("The journey to west")
+print("      ")
+lib.unavailable_book("The journey to west")
 
 
     
