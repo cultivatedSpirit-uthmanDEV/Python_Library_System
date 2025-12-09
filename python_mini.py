@@ -25,8 +25,8 @@ class library():
     for Book in self.Books:
       if Book['title'] == title:
         print(f"{Book['title']} by {Book['author']} in {Book['year']} Found!")
-      return
-  print('Not Found!')
+        return
+    print('Not Found!')
 
   ## Borrow book
 
@@ -51,6 +51,9 @@ class library():
       else: 
         print("It is available")
 
+  def number_of_book(self):
+      print(len(self.Books))
+
 
 
 
@@ -61,6 +64,7 @@ class library():
 
 
 lib = library()
+lib.add_Book("Python for beginners", "NoorLab institute", "2025")
 lib.add_Book("Python for beginners", "NoorLab institute", "2025")
 lib.add_Book("The journey to west", "J. chenyu", "1956")
 lib.add_Book("futurist peeps", "W. Uthman", "1956")
@@ -80,6 +84,9 @@ print("      ")
 lib.borrow_Book("The journey to west")
 print("      ")
 lib.unavailable_book("The journey to west")
+
+print("      ")
+lib.number_of_book()
 
 
     
