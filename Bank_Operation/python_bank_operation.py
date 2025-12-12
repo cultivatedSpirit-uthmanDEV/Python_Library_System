@@ -7,6 +7,8 @@ class User():
         self.name = ""
         self.pin = ""
         self.account_number = ""
+        self.balance = 0.0
+    
 
     def create_account(self):
         print("     ")
@@ -25,10 +27,16 @@ class User():
         print(f"PIN: {self.pin}")
         print(f"Account Number: {self.account_number}")
 
+    def check_balance(self):
+        print("     ")
+        print(f"Current Balance: #{self.balance}")
+
+
 
 user1 = User()
 
 user1.create_account()
+user1.check_balance()
 
 
  
