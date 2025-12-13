@@ -30,6 +30,14 @@ class User():
     def check_balance(self):
         print("     ")
         print(f"Current Balance: #{self.balance}")
+    def deposit_money(self,amount):
+        if amount <= 0:
+            print("invalid amount")
+        else:
+         self.balance += amount
+         print(f"{amount} has been successfully added!. your new balance : {self.balance}")
+         
+
 
 
 
@@ -37,6 +45,7 @@ user1 = User()
 
 user1.create_account()
 user1.check_balance()
+user1.deposit_money(amount=100.0)
 
 
  
