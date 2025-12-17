@@ -36,16 +36,51 @@ class User():
         else:
          self.balance += amount
          print(f"{amount} has been successfully added!. your new balance : {self.balance}")
+    def withdraw_money(self,amount):
+        print("     ")
+        print("     ")
+        if self.balance <= 0:
+            print("insuficient balance")
+        else:
+            self.balance -= amount
+            print(f"{amount} has been successfully withdrawn.your balance is {self.balance}")#
+    def transfer(self,amount,receiver):
+        if amount <= 0:
+            print("Invalid amount")
+            return
+        if amount > self.balance:
+            print("Insufficient balance")
+            return
+        self.balance -= amount
+        receiver.balance += amount
+
+        print(f"Transfer successful!")
+        print(f"Your new balance: ₦{self.balance}")
+
+
          
 
 
 
 
 user1 = User()
+user2 = User()
 
 user1.create_account()
 user1.check_balance()
-user1.deposit_money(amount=100.0)
+user1.deposit_money(1000.0)
+user1.withdraw_money(100)
+
+user2.create_account()
+amount = float(input("\nEnter amount to send: "))
+user1.transfer(500 , user2)
+
+print("     ")
+print("     ")
+user1.check_balance()
+
+print("receiver: ")
+user2.check_balance()
 
 
  
