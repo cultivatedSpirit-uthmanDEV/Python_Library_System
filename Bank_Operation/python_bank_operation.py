@@ -31,7 +31,7 @@ class User():
         print("     ")
         
         self.name = input("Enter your name: ")
-        self.pin = input("Create your 4-digit pin: ")
+       
 
 
         #check if the pin is weak
